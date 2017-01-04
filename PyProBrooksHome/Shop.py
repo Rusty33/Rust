@@ -1,9 +1,9 @@
-from Player import *
+import Con
 
 
-stock = ['axe','bow']
-class Shop():
+class CShop():
     def __init__(self):
+        stock = [Con.Axe]
         self.stock = stock
         self.name = 'Johns'
     def run(self):
@@ -24,10 +24,10 @@ class Shop():
         else:
             self.options[com]()
     def buy(self):
-        
+        global Player
         num = 1
         for x in self.stock:
-            print('%s. %s'% (num,x))
+            print('%s. %s'% (num,x.name))
             num += 1
         com = input('What will it be?' )
         com = int(com)
@@ -36,5 +36,5 @@ class Shop():
         if com == num:
             print('Ok. Mabey next time.')
         else:
-            Player.weapons.append(self.stock[com])
-            print(Player.weapons)
+            Con.Player.weapons.append(self.stock[com])
+            print(Con.Player.weapons[0].name)

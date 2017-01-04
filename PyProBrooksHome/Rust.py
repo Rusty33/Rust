@@ -1,11 +1,13 @@
-from Player import *
-Player = Player()
+import Con 
+
 
 ##########################################################
+Con.start_game()
+print(Con.Player)
 intro = 'Welcome to Rust! A world of endles posabilaties and YOU are the center of it.'
 print(intro)
-Player.player_name = input('Now, tell me what is your name?')
-print('Ok then %s.today is your first day in Rust so get out there and do want you want.If you need me just call.' % (Player.player_name))
+Con.Player.player_name = input('Now, tell me what is your name?')
+print('Ok then %s.today is your first day in Rust so get out there and do want you want.If you need me just call.' % (Con.Player.player_name))
 ##########################################################
 option_list = []
 game = True
@@ -22,7 +24,7 @@ class Help():
             print('%s. %s'% (num,x))
             num += 1
         print('%s. exit' % (num))    
-        com = input('What can I help you with %s' % (Player.player_name))
+        com = input('What can I help you with %s' % (Con.Player.player_name))
         com = int(com)
         com -= 1
         num -= 1
@@ -32,16 +34,16 @@ class Help():
             self.options[com]()
 #////////////////////////////////////////////////////////////#
     def name_change(self):
-        print(Player.player_name)
-        com = input('Would you like to change your name %s?(y/n)' % (Player.player_name))
+        print(Con.Player.player_name)
+        com = input('Would you like to change your name %s?(y/n)' % (Con.Player.player_name))
         if com == 'y' or com == 'yes':
-            Player.player_name = input('Ok. What do you want your new name to be?')
-            print("I'll call you %s from now on"% (Player.player_name))
+            Con.Player.player_name = input('Ok. What do you want your new name to be?')
+            print("I'll call you %s from now on"% (Con.Player.player_name))
         else:
             print('Ok.Bye')
 #////////////////////////////////////////////////////////////#
     def get_pos(self):
-        print(Player.player_pos_list[Player.player_pos].name)
+        print(Con.Player.player_pos_list[Con.Player.player_pos].name)
         
 
 
@@ -49,7 +51,7 @@ class Help():
         
 call_help = Help()
 option_list.append(call_help)
-option_list.append(Player.player_pos_list[Player.player_pos])
+option_list.append(Con.Player.player_pos_list[Con.Player.player_pos])
 ##########################################################
 def menu():
     global game

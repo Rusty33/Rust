@@ -1,7 +1,5 @@
 #this has the town class
-from Player import *
-from Shop import *
-shop = Shop()
+from Con import *
 class Town():
     def __init__(self,shop):
         self.name = 'Town'
@@ -24,9 +22,9 @@ class Town():
             self.options[com]()
     def shop(self):
         self.num = 1
-        self.options_name = [shop.name]
+        self.options_name = self.shops
         for x in self.options_name:
-            print('%s. %s'% (self.num,x))
+            print('%s. %s'% (self.num,x.name))
             self.num += 1
         print('%s. exit' % (self.num))    
         com = input('What can I help you with ')
